@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
 </head>
 <body>
 
-	<h1>EPIC TASK</h1>
-	<h2>Nova Tarefa</h2>
-	
-	<form action="/task" method="post">
-	<label for="title">Títulos</label>
-	<input id="title" name="title">
-	
-	<label for="description">Descrição</label>
-	<textarea name="description" id="description" rows="" cols=""></textarea>>
-	
-	<label for="points">Pontos</label>
-	<input name="points" id="points" type="range">
-	
-	<a href="/task">Cancelar</a>
-	<button>Salvar</button>
-		
-	</form>
+<h1>EPIC TASK</h1>
+<h2>Nova Tarefa</h2>
+
+<form action="/task" method="post" th:object="${task}">
+    <label for="title">Títulos</label>
+    <input id="title" name="title">
+	<span th:errors="*{title}"></span>
+
+    <label for="description">Descrição</label>
+    <textarea name="description" id="description" rows="" cols=""></textarea>>
+	<span th:errors="*{description}"></span>
+
+    <label for="points">Pontos</label>
+    <input name="points" id="points" type="range">
+	<span th:errors="*{points}"></span>
+
+    <a href="/task">Cancelar</a>
+    <button>Salvar</button>
+
+</form>
 
 
 </body>

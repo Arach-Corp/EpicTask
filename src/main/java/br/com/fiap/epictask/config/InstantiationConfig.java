@@ -19,21 +19,21 @@ public class InstantiationConfig implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Task task = Task.builder()
-                .description("Teste")
-                .points(10)
-                .title("Teste 1")
+                .description("Teste 1")
+                .points(11)
+                .title("Teste 1assssssa")
                 .build();
 
         Task task1 = Task.builder()
-                .description("Teste")
-                .points(10)
-                .title("Teste 1")
+                .description("Teste 2")
+                .points(11)
+                .title("Teste 2asdasdasddddddsad")
                 .build();
 
         Task task2 = Task.builder()
-                .description("Teste")
-                .points(10)
-                .title("Teste 1")
+                .description("Teste 3asdddddddd")
+                .points(11)
+                .title("Teste 3")
                 .build();
 
         repository.saveAll(Arrays.asList(task, task1, task2));

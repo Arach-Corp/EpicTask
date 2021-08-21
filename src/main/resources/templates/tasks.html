@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
 </head>
 <body>
 
-	<h1>EPIC TASK</h1>
-	<h2>Tarefas</h2>
-	
-	<a href="/task/new">Nova Tarefa</a>
+<h1>EPIC TASK</h1>
+<h2>Tarefas</h2>
+
+
+<ul th:each="task : ${tasks}">
+    <li>
+        <p>${task.title}</p>
+        <p>${task.description}</p>
+        <p>${task.points}</p>
+        <button>pegar</button>
+    </li>
+</ul>
+
+
+<a href="/task/new">Nova Tarefa</a>
 
 
 </body>
