@@ -1,0 +1,13 @@
+/*botao*/
+
+.btn {
+    background: #A650FF;
+    box-shadow: 0px 0px 7px #A650FF;
+    border-radius: 7px;
+}
+
+.btn-2{
+    background: #25282B;
+    box-shadow: -2px -2px 4px rgba(98, 97, 97, 0.25), 2px 2px 4px #161616;
+    border-radius: 7px;
+}
