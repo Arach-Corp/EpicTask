@@ -12,6 +12,7 @@ import java.util.Arrays;
 @Configuration
 @Profile("test")
 public class InstantiationConfig implements CommandLineRunner {
+
     @Autowired
     private TaskRepository repository;
 
@@ -38,4 +39,5 @@ public class InstantiationConfig implements CommandLineRunner {
 
         repository.saveAll(Arrays.asList(task, task1, task2));
     }
+
 }

@@ -10,11 +10,11 @@
 <h2>Tarefas</h2>
 
 
-<ul th:each="task : ${tasks}">
+<ul th:each="task : ${tasks.content}">
     <li>
-        <p>${task.title}</p>
-        <p>${task.description}</p>
-        <p>${task.points}</p>
+        <p th:text="${task.title}" ></p>
+        <p th:text="${task.description}" ></p>
+        <p th:text="${task.points}" ></p>
         <button>pegar</button>
     </li>
 </ul>
