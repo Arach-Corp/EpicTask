@@ -5,23 +5,31 @@
     <title>Insert title here</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{/auth/login}">Login</a></li>
+                <li><a th:href="@{/auth/register}">Register</a></li>
+                <li><a th:href="@{/users}">Users</a></li>
+                <li><a th:href="@{/task}">Task</a></li>
+                <li><a th:href="@{/swagger-ui/}">Swagger</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <h1>EPIC TASK</h1>
+    <h2>Tarefas</h2>
+    <hr>
 
-<h1>EPIC TASK</h1>
-<h2>Tarefas</h2>
+    <ul th:each="task : ${tasks.content}">
+        <li>
+            <p th:text="${task.title}" ></p>
+            <p th:text="${task.description}" ></p>
+            <p th:text="${task.points}" ></p>
+            <button>pegar</button>
+        </li>
+    </ul>
 
-
-<ul th:each="task : ${tasks.content}">
-    <li>
-        <p th:text="${task.title}" ></p>
-        <p th:text="${task.description}" ></p>
-        <p th:text="${task.points}" ></p>
-        <button>pegar</button>
-    </li>
-</ul>
-
-
-<a href="/task/new">Nova Tarefa</a>
-
-
+    <a th:href="@{/task/new}">Nova Tarefa</a>
 </body>
 </html>

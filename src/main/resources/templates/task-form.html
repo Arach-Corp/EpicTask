@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{/auth/login}">Login</a></li>
+                <li><a th:href="@{/auth/register}">Register</a></li>
+                <li><a th:href="@{/users}">Users</a></li>
+                <li><a th:href="@{/task}">Task</a></li>
+                <li><a th:href="@{/swagger-ui/}">Swagger</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <h1>EPIC TASK</h1>
+    <h2>Nova Tarefa</h2>
+    <hr>
+    <form action="/task" method="post" th:object="${task}">
+        <label for="title">Títulos</label>
+        <input id="title" name="title">
+        <span th:errors="*{title}"></span>
 
-<h1>EPIC TASK</h1>
-<h2>Nova Tarefa</h2>
+        <label for="description">Descrição</label>
+        <textarea name="description" id="description" rows="" cols=""></textarea>>
+        <span th:errors="*{description}"></span>
 
-<form action="/task" method="post" th:object="${task}">
-    <label for="title">Títulos</label>
-    <input id="title" name="title">
-	<span th:errors="*{title}"></span>
+        <label for="points">Pontos</label>
+        <input name="points" id="points" type="range">
+        <span th:errors="*{points}"></span>
 
-    <label for="description">Descrição</label>
-    <textarea name="description" id="description" rows="" cols=""></textarea>>
-	<span th:errors="*{description}"></span>
+        <a th:href="@{/task}">Cancelar</a>
+        <button>Salvar</button>
 
-    <label for="points">Pontos</label>
-    <input name="points" id="points" type="range">
-	<span th:errors="*{points}"></span>
-
-    <a href="/task">Cancelar</a>
-    <button>Salvar</button>
-
-</form>
-
+    </form>
 
 </body>
 </html>

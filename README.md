@@ -1,5 +1,16 @@
 # Projeto Epic Task
 
+## Integrantes
+
+Nome   | RM
+--------- | ------
+João Victor Pessoa Queiroz | RM85568
+Jacó Magalhães  I Sen Chen | RM84717
+Enrique Oliveira Caribé | RM85584
+Victor Yafusso Sunahara | RM84095
+Pedro Dib | RM84735
+
+
 ### Dependencias
 * Maven
 

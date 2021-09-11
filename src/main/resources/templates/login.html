@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
-<body>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Epictask | Login</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a th:href="@{/auth/login}">Login</a></li>
+					<li><a th:href="@{/auth/register}">Register</a></li>
+					<li><a th:href="@{/users}">Users</a></li>
+					<li><a th:href="@{/task}">Task</a></li>
+					<li><a th:href="@{/swagger-ui/}">Swagger</a></li>
+				</ul>
+			</nav>
+		</header>
+		<hr>
 
-	<h1>EPIC TASK</h1>
-	<h2>Login</h2>
+		<h1>EPIC TASK</h1>
+		<h2>Login</h2>
 	
-	<form action="">
-	<label for="email">Email</label>
-	<input id="email" name="email">
+		<form method="post">
+			<label for="email">Email</label>
+			<input id="email" name="email">
 	
-	<label for="password">Senha</label>
-	<input id="password" name="password" type="password">
-	
-		<a href="/task">Cancelar</a>
-	<button>Salvar</button>
-		
-	</form>
-
-
-</body>
+			<label for="password">Senha</label>
+			<input id="password" name="password" type="password">
+			<a th:href="@{/task}">Cancelar</a>
+			<button>Login</button>
+		</form>
+		<a th:href="@{/auth/register}">
+			<button>Registre-se</button>
+		</a>
+		<hr>
+		<p>Ainda não possui uma conta? <a th:href="@{/auth/register}">Registre-se agora</a></p>
+	</body>
 </html>

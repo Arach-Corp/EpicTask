@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Epictask | Register</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a th:href="@{/auth/login}">Login</a></li>
+					<li><a th:href="@{/auth/register}">Register</a></li>
+					<li><a th:href="@{/users}">Users</a></li>
+					<li><a th:href="@{/task}">Task</a></li>
+					<li><a th:href="@{/swagger-ui/}">Swagger</a></li>
+				</ul>
+			</nav>
+		</header>
+		<hr>
+		<h1>EPIC TASK</h1>
+		<h2>Register</h2>
+		<hr>
+		<form method="post" th:object="${userForm}">
+			<div class="">
+				<label for="name">Name</label>
+				<input id="name" name="name" th:field="*{name}" th:value="${name}" required>
+				<span th:errors="*{name}"></span>
+			</div>
+
+			<div class="">
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" th:field="*{email}" th:value="${email}" required>
+				<span th:errors="*{email}"></span>
+			</div>
+
+			<div class="">
+				<label for="password">Senha</label>
+				<input id="password" name="password" type="password" th:field="*{password}" th:value="${password}" required>
+				<span th:errors="*{password}"></span>
+			</div>
+
+			<a th:href="@{/task}">Cancelar</a>
+			<button>Salvar</button>
+		</form>
+		<hr>
+		<p>Já possui uma conta? <a th:href="@{/auth/login}">Faça login</a></p>
+	</body>
+</html>

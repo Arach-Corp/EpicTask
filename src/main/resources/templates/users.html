@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>.: EpicTask | Users :.</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{/auth/login}">Login</a></li>
+                <li><a th:href="@{/auth/register}">Register</a></li>
+                <li><a th:href="@{/users}">Users</a></li>
+                <li><a th:href="@{/task}">Task</a></li>
+                <li><a th:href="@{/swagger-ui/}">Swagger</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <div>
+        <h1>EPIC TASK</h1>
+        <h2>Usuarios</h2>
+        <a th:href="@{/auth/register}">Cadastrar novo usuario</a>
+        <hr>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data de criação</th>
+                <th>Data de modificação</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users.content}">
+                    <th scope="row" th:text="${user.id}"></th>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${#temporals.format(user.creationTime, 'dd/MM/yyyy HH:mm:ss', new java.util.Locale('pt', 'BR'))}"></td>
+                    <td th:text="${#temporals.format(user.updateTime, 'dd/MM/yyyy HH:mm:ss', new java.util.Locale('pt', 'BR'))}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <nav th:if="${users.totalPages > 0}" >
+            <ul class="pagination">
+                <li th:each="pageNumber: ${pageNumbers}" class="nav-item">
+                    <a th:href="@{/users(size=${users.size}, page=${pageNumber - 1})}"
+                       th:text=${pageNumber}
+                       th:classappend="${pageNumber==users.number + 1} ? active"
+                       class="nav-link"
+                    ></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
